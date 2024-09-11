@@ -1,0 +1,219 @@
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\Users\nagy.hunor.jozsef> cd C:\Users\nagy.hunor.jozsef\Desktop\git\911\
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git init -b main
+Initialized empty Git repository in C:/Users/nagy.hunor.jozsef/Desktop/git/911/.git/
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git branch
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git info
+git: 'info' is not a git command. See 'git --help'.
+
+The most similar commands are
+        init
+        mailinfo
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git status
+On branch main
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   szoveg.txt
+
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "First commit"
+[main (root-commit) 10ac882] First commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 szoveg.txt
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git log
+commit 10ac8828eb1e48be473385cd756e5bd03966b54a (HEAD -> main)
+Author: hunor64 <nhunor06@gmail.com>
+Date:   Wed Sep 11 10:31:57 2024 +0200
+
+    First commit
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout -b branch2
+Switched to a new branch 'branch2'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Switched to branch 'main'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "Added text"
+[main c5e3907] Added text
+ 1 file changed, 1 insertion(+)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit "Added text"
+error: pathspec 'Added text' did not match any file(s) known to git
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout branch2
+Switched to branch 'branch2'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "text new add"
+[branch2 685aa19] text new add
+ 1 file changed, 1 insertion(+)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Switched to branch 'main'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git merge
+fatal: No remote for the current branch.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git merge branch 2
+merge: branch - not something we can merge
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git merge branch2
+Auto-merging szoveg.txt
+CONFLICT (content): Merge conflict in szoveg.txt
+Automatic merge failed; fix conflicts and then commit the result.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "merged"
+[main 8e1a309] merged
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git branch -d branch2
+Deleted branch branch2 (was 685aa19).
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git branch
+* main
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "added new text"
+[main f52d316] added new text
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout -b branch3
+Switched to a new branch 'branch3'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "branch3 updated"
+[branch3 df841f0] branch3 updated
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Switched to branch 'main'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "main update"
+[main 35b72ea] main update
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git merge branch3
+Auto-merging szoveg.txt
+CONFLICT (content): Merge conflict in szoveg.txt
+Automatic merge failed; fix conflicts and then commit the result.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit "merged branch"
+fatal: cannot do a partial commit during a merge.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "merged branch"
+[main 862c18a] merged branch
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout -d branch3
+HEAD is now at df841f0 branch3 updated
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Previous HEAD position was df841f0 branch3 updated
+Switched to branch 'main'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout -b branch 4
+fatal: '4' is not a commit and a branch 'branch' cannot be created from it
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout -b branch4
+Switched to a new branch 'branch4'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "branch 4 updated"
+[branch4 d776b50] branch 4 updated
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Switched to branch 'main'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git merge branch4
+Updating 862c18a..d776b50
+Fast-forward
+ szoveg.txt | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Already on 'main'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "main update"
+[main 46a434f] main update
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git merge branch4
+Already up to date.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout branch 4
+error: pathspec 'branch' did not match any file(s) known to git
+error: pathspec '4' did not match any file(s) known to git
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout branch 4
+error: pathspec 'branch' did not match any file(s) known to git
+error: pathspec '4' did not match any file(s) known to git
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911>
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout branch4
+Switched to branch 'branch4'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "branch  4 update"
+[branch4 60fafd9] branch  4 update
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Switched to branch 'main'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git merge branch4
+Auto-merging szoveg.txt
+CONFLICT (content): Merge conflict in szoveg.txt
+Automatic merge failed; fix conflicts and then commit the result.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit
+[main c5dbf46] Merge branch 'branch4'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "merged"
+On branch main
+nothing to commit, working tree clean
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git branch -M main
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git remote add origin https://github.com/Hunor64/GitMerge.git
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git push -u origin main
+Enumerating objects: 36, done.
+Counting objects: 100% (36/36), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (19/19), done.
+Writing objects: 100% (36/36), 2.72 KiB | 309.00 KiB/s, done.
+Total 36 (delta 8), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (8/8), done.
+To https://github.com/Hunor64/GitMerge.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "addded github"
+[main 6703b49] addded github
+ 1 file changed, 1 insertion(+)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout -b "branch5"
+Switched to a new branch 'branch5'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git add .
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git commit -m "branch5 update"
+[branch5 a86e772] branch5 update
+ 1 file changed, 1 insertion(+), 10 deletions(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout main
+Switched to branch 'main'
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git push
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 298 bytes | 298.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Hunor64/GitMerge.git
+   c5dbf46..6703b49  main -> main
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git checkout "branch5"
+Switched to branch 'branch5'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git push
+fatal: The current branch branch5 has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin branch5
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git push --set-upstream origin branch5
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 285 bytes | 285.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'branch5' on GitHub by visiting:
+remote:      https://github.com/Hunor64/GitMerge/pull/new/branch5
+remote:
+To https://github.com/Hunor64/GitMerge.git
+ * [new branch]      branch5 -> branch5
+branch 'branch5' set up to track 'origin/branch5'.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git branch -d branch5
+error: cannot delete branch 'branch5' used by worktree at 'C:/Users/nagy.hunor.jozsef/Desktop/git/911'
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git pull
+Your configuration specifies to merge with the ref 'refs/heads/branch5'
+from the remote, but no such ref was fetched.
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911> git pull
+Updating 6703b49..f3da9a1
+Fast-forward
+ szoveg.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+PS C:\Users\nagy.hunor.jozsef\Desktop\git\911>
